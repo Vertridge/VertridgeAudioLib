@@ -29,7 +29,7 @@ struct WavHeader {
 
 struct WavData {
   WavHeader Header;
-  int8_t *Buffer = nullptr;
+  uint8_t *Buffer = nullptr;
 };
 
 WavData LoadWav(const std::string &wav);

@@ -16,9 +16,9 @@ Loader::Wav::WavData Loader::Wav::LoadWav(const std::string &wav) {
     uint16_t bytesPerSample = wavData.Header.BitsPerSample / 8;
     uint64_t numSamples = wavData.Header.ChunkSize / bytesPerSample;
 
-    wavData.Buffer = new int8_t[wavData.Header.DataSize];
+    wavData.Buffer = new uint8_t[wavData.Header.DataSize];
     static const uint16_t BUFFER_SIZE = 4096;
-    int8_t *buffer = new int8_t[BUFFER_SIZE];
+    uint8_t *buffer = new uint8_t[BUFFER_SIZE];
     std::size_t totalBytesRead = 0;
     while ((bytesRead = fread(buffer, sizeof buffer[0],
                               BUFFER_SIZE / (sizeof buffer[0]), wavFile)) > 0) {
